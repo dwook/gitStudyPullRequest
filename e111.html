@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+
+    <style>
+.tab:after {display:block;clear:both;content:"";}
+.tab li {width:50px;height:50px;float:left;list-style-type: none;background:crimson;text-align:center;line-height:50px;}
+.tab li.even {background:tomato;}
+.tab li.on {background:pink;}
+.panel {width:200px;height:100px;background:yellow;text-align:center;line-height:100px;display:none;}
+.panel.even {background:purple;}
+.panel.on {display:block;}
+
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            var $selected = null;
+            var $selectedIdx = null;
+            $(".tab li").click(function(){
+                
+                
+                // if($selected) {
+                //     $selected.removeClass("on");
+                //     $(".panel").eq($selectedIdx).removeClass("on");
+                // }
+
+                // $selected = $(this);
+                // $selectedIdx = $selected.index();
+               
+                // $selected.addClass("on");
+                // $(".panel").eq($selectedIdx).addClass("on");
+                // console.log($selected);
+
+                if($selected) {
+                     $selected.removeClass("on");
+                     $(".panel").hide();
+
+                }
+
+                $selected = $(this);
+                $selectedIdx = $selected.index();
+                $selected.addClass("on");
+                $(".panel").eq($selectedIdx).addClass("on");
+
+            })
+
+        });
+    </script>
+
+
+</head>
+
+<body>
+
+
+    <ul class="tab">
+        <li>a</li>
+        <li class="even">b</li>
+        <li>c</li>
+        <li class="even">d</li>
+    </ul>
+    <div class="panel">aa</div>
+    <div class="panel even">bb</div>
+    <div class="panel">cc</div>
+    <div class="panel even">dd</div>
+    
+    <ul class="tab">
+        <li>e</li>
+        <li class="even">f</li>
+        <li>g</li>
+        <li class="even">h</li>
+    </ul>
+    <div class="panel">ee</div>
+    <div class="panel even">ff</div>
+    <div class="panel">gg</div>
+    <div class="panel even">hh</div>
+
+</body>
+
+</html>
